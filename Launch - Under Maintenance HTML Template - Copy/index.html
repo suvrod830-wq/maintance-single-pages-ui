@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<!-- Page Title -->
+	<title>Novoclad | Coming Soon</title>
+	<!-- Google Fonts css-->
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
+	<!-- Bootstrap css -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<!-- Font Awesome icon css-->
+	<link href="css/font-awesome.min.css" rel="stylesheet" media="screen">
+	<!-- Main custom css -->
+	<link href="css/custom.css" rel="stylesheet" media="screen">
+
+	<style>
+		.btn-white { 
+			font-size: 2rem;background-color: #fff;border-radius: 50%;width: 50px;height: 50px;
+			display: inline-flex;align-items: center;justify-content: center;
+		}
+	</style>
+	 
+</head>
+<body>
+	
+	<!-- Coming Soon Wrapper starts -->
+	<div class="comming-soon">
+		
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="coming-soon-box">
+						<!-- Logo Start -->
+						<div class="logo">
+							<img src="images/Novclad.png" width="136" height="" alt="logo" style="filter: brightness(10);">
+						</div>
+						<!-- Logo end -->
+						
+						<!-- Types Information start -->
+						<div class="coming-text">
+							<p>Keep calm, we are</p>
+							<h2><span class="typed-title">Launching in</span></h2>
+							<div class="typing-title">
+								<p>Launching in</p>
+								<p>Coming Soon</p>
+							</div>
+						</div>
+						<!-- Types Information end -->
+						
+						<!-- Countdown start -->
+						<div class="countdown-timer-wrapper">
+							<div class="timer" id="countdown"></div>
+						</div>
+						<!-- Countdown end -->
+
+						<div class="mt-5 d-flex justify-content-center gap-3" style="gap:1rem; display: flex; justify-content: center;">
+							<a href="mailto:nayeem@novoclad.ae" class="btn btn-white d-flex justify-content-center align-items-center">
+								<i class="fa fa-envelope"></i>
+							</a>
+							<a href="tel:00971501506192" class="btn btn-white d-flex justify-content-center align-items-center">
+								<i class="fa fa-phone"></i>
+							</a>
+						</div>
+						 
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Coming Soon Wrapper end -->
+	
+    <!-- Jquery Library File -->
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<!-- Timer counter js file -->
+	<script src="js/countdown-timer.js"></script>
+	<!-- Typed js file -->
+	<script src="js/typed.js"></script>
+	<!-- SmoothScroll -->
+	<script src="js/SmoothScroll.js"></script>
+    <!-- Bootstrap js file -->
+	<script src="js/bootstrap.min.js"></script>
+    <!-- Main Custom js file -->
+	<script src="js/function.js"></script>
+	<!-- Timer counter start -->
+	<script>
+        $(document).ready(function (){
+			//var myDate = new Date("08/04/2019");
+			var myDate = new Date();
+			myDate.setDate(myDate.getDate() + 14);
+            $("#countdown").countdown(myDate, function (event) {
+                $(this).html(
+                    event.strftime(
+                        '<div class="timer-wrapper"><div class="time">%D</div><span class="text">Days</span></div><div class="timer-wrapper"><div class="time">%H</div><span class="text">Hours</span></div><div class="timer-wrapper"><div class="time">%M</div><span class="text">Minutes</span></div><div class="timer-wrapper"><div class="time">%S</div><span class="text">Seconds</span></div>'
+                    )
+                );
+            });
+
+        });
+    </script>
+	<!-- Timer counter end -->
+</body>
+</html>

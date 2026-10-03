@@ -1,0 +1,195 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To the women who are changing everything - GuideGrid</title>
+    <style>
+        :root {
+            --bg-color: #000;
+            --text-color: #fff;
+            --font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-family);
+            -webkit-font-smoothing: antialiased;
+            overflow: hidden; /* Prevent scrollbars during large movements */
+        }
+
+        .hero-section {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Large canvas that extends beyond the viewport for full-range movement */
+        .parallax-viewport {
+            position: absolute;
+            top: -25%;
+            left: -25%;
+            width: 150%;
+            height: 150%;
+            z-index: 1;
+            display: block;
+        }
+
+        .hero-content {
+            z-index: 100;
+            pointer-events: none; /* Mouse passes through to portraits */
+        }
+
+        .hero-title {
+            font-size: clamp(32px, 8vw, 80px);
+            font-weight: 600;
+            line-height: 1.05;
+            letter-spacing: -0.015em;
+            margin: 0;
+            background: linear-gradient(180deg, #fff 0%, #a1a1a1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .floating-portrait {
+            position: absolute;
+            cursor: pointer;
+            pointer-events: auto;
+            will-change: transform;
+        }
+
+        .image-wrapper {
+            position: relative;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .floating-portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            filter: grayscale(100%) contrast(1.1);
+            transition: filter 0.4s ease;
+        }
+
+        .portrait-info {
+            position: absolute;
+            bottom: -90px;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            width: 190px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            text-align: center;
+            background: rgba(15, 15, 15, 0.9);
+            backdrop-filter: blur(20px);
+            padding: 15px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.1);
+            z-index: 200;
+        }
+
+        .portrait-info h3 { font-size: 15px; margin: 0 0 4px; color: #fff; }
+        .portrait-info p { font-size: 12px; margin: 0; color: #86868b; line-height: 1.4; }
+
+        /* Interaction */
+        .floating-portrait:hover { z-index: 300; }
+        .floating-portrait:hover .image-wrapper { transform: scale(1.4); }
+        .floating-portrait:hover img { filter: grayscale(0%) contrast(1); }
+        .floating-portrait:hover .portrait-info {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero-section">
+        <div class="parallax-viewport" id="scene">
+            <div class="floating-portrait" style="top: 25%; left: 20%; width: 140px; height: 140px;" data-depth="0.25">
+                <div class="image-wrapper"><img src="https://picsum.photos/id/64/300" alt=""></div>
+                <div class="portrait-info"><h3>Alicia Keys</h3><p>Grammy-winning Artist</p></div>
+            </div>
+
+            <div class="floating-portrait" style="top: 70%; left: 15%; width: 110px; height: 110px;" data-depth="0.15">
+                <div class="image-wrapper"><img src="https://picsum.photos/id/65/300" alt=""></div>
+                <div class="portrait-info"><h3>Greta Thunberg</h3><p>Environmentalist</p></div>
+            </div>
+
+            <div class="floating-portrait" style="top: 15%; left: 48%; width: 90px; height: 90px;" data-depth="0.35">
+                <div class="image-wrapper"><img src="https://picsum.photos/id/177/300" alt=""></div>
+                <div class="portrait-info"><h3>Malala</h3><p>Nobel Peace Prize</p></div>
+            </div>
+
+            <div class="floating-portrait" style="top: 85%; left: 45%; width: 120px; height: 120px;" data-depth="0.20">
+                <div class="image-wrapper"><img src="https://picsum.photos/id/342/300" alt=""></div>
+                <div class="portrait-info"><h3>Marie Curie</h3><p>Nobel Scientist</p></div>
+            </div>
+
+            <div class="floating-portrait" style="top: 30%; left: 75%; width: 160px; height: 160px;" data-depth="0.30">
+                <div class="image-wrapper"><img src="https://picsum.photos/id/823/300" alt=""></div>
+                <div class="portrait-info"><h3>Maya Angelou</h3><p>Poet & Activist</p></div>
+            </div>
+
+            <div class="floating-portrait" style="top: 65%; left: 85%; width: 100px; height: 100px;" data-depth="0.10">
+                <div class="image-wrapper"><img src="https://picsum.photos/id/454/300" alt=""></div>
+                <div class="portrait-info"><h3>Serena Williams</h3><p>Tennis Champion</p></div>
+            </div>
+
+            <div class="floating-portrait" style="top: 10%; left: 80%; width: 70px; height: 70px;" data-depth="0.45">
+                <div class="image-wrapper"><img src="https://picsum.photos/id/669/300" alt=""></div>
+                <div class="portrait-info"><h3>Kamala Harris</h3><p>Policy Leader</p></div>
+            </div>
+
+            <div class="floating-portrait" style="top: 85%; left: 10%; width: 80px; height: 80px;" data-depth="0.40">
+                <div class="image-wrapper"><img src="https://picsum.photos/id/900/300" alt=""></div>
+                <div class="portrait-info"><h3>Zendaya</h3><p>Cultural Icon</p></div>
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">To the women who are<br>changing everything.</h1>
+        </div>
+    </section>
+
+    <script>
+        const portraits = document.querySelectorAll('.floating-portrait');
+
+        document.addEventListener('mousemove', (e) => {
+            const { clientX, clientY } = e;
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+
+            // Normalize mouse position relative to center (-1 to 1)
+            const mouseX = (clientX - centerX) / centerX;
+            const mouseY = (clientY - centerY) / centerY;
+
+            portraits.forEach(item => {
+                // Depth multiplier for travel distance (Higher = further movement)
+                const depth = parseFloat(item.getAttribute('data-depth')) || 0.9;
+                
+                // Calculate movement: Distance = (Mouse Position) * (Max Displacement)
+                // Moving the images in the opposite direction of mouse creates depth
+                const translateX = mouseX * (window.innerWidth * depth);
+                const translateY = mouseY * (window.innerHeight * depth);
+
+                item.style.transform = `translate3d(${-translateX}px, ${-translateY}px, 0)`;
+            });
+        });
+    </script>
+</body>
+</html>
+ 
